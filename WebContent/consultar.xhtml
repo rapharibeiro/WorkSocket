@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="template/template.xhtml">
+
+	<ui:define name="conteudo">
+
+		<h:form id="formConsulta" prependId="false">
+
+			<p:growl id="msg" showDetail="true" />
+
+			<p:panel id="panelToolBar" style="width:940px;">
+
+				<p:dataTable var="fun" value="#{controle.listaFun}" paginator="true"
+					rows="5" style="height: 680px; width:880;"
+					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+					emptyMessage="#{msgs.mensagemGridSemRegistro}"
+					paginatorPosition="bottom">
+
+					<p:column headerText="Nome" sortBy="#{fun.nome}"
+						filterBy="#{fun.nome}" filterMatchMode="contains">
+						<h:outputText value="#{fun.nome}" />
+					</p:column>
+
+					<p:column headerText="E-mail" >
+						<h:outputText value="#{fun.email}" style="width:120px;" /> 
+					</p:column>
+
+					<p:column headerText="Cidade" sortBy="#{fun.endereco.cidade}">
+						<h:outputText value="#{fun.endereco.cidade}" />
+					</p:column>
+
+					<p:column headerText="Estado" sortBy="#{fun.endereco.estado}">
+						<h:outputText value="#{fun.endereco.estado}" />
+					</p:column>
+
+					<p:column headerText="Cargo" sortBy="#{fun.cargo}">
+						<h:outputText value="#{fun.cargo.nomeCargo}" />
+					</p:column>
+
+					<p:column headerText="Salário" >
+						<h:outputText value="#{fun.cargo.salario}" />
+					</p:column>
+
+					<p:column style="width:150px" headerText="Ações">
+						<p:commandButton title="EDITAR" icon="ui-icon-pencil"
+							action="#{controle.paginaEditar(fun)}" ajax="false" />
+						<p:spacer width="5" />
+						<p:commandButton title="EXCLUIR" icon="ui-icon-trash"
+							actionListener="#{controle.deletar(fun)}" ajax="false" />
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,60 @@
+@CHARSET "ISO-8859-1";
+
+.footer {
+	width: 760px;
+	margin-top: 5px;
+	background-color: green;
+	
+}
+
+.left {
+	margin-top: 2px;
+	float: left;
+	margin-left: 2px;
+	height: 760px;
+}
+
+.right {
+	margin-top: 5px;
+	float: right;
+	height: 760px;
+	background-color: green;
+}
+
+body { 
+	margin: 0; 
+	padding: 0;
+	background: #FFF; 
+	text-align: center; /* hack para o IE */
+	
+}
+.topo{
+	width: 760px;
+	background: #FFF;
+	text-align: left;
+}
+
+.tudo { 
+	width: 800px; 
+	margin: 0 auto; 
+	text-align: left; /* "remédio" para o hack do IE */
+}
+.wrapper{
+	background: #FFF;
+	height: 760px;
+	width: 880px; 
+	margin: 0 auto; 
+	text-align: left;
+	margin-top: 5px;
+	
+}
+.center{
+	background: #FFF;
+	height: 760px;
+	width: 880px; 
+	margin: 0 auto; 
+	text-align: left;
+	margin-top: 5px;
+	font-family: cursive;
+	
+}

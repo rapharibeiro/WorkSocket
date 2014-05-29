@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/template/template.xhtml">
+
+	<ui:define name="conteudo">
+
+		<h:form prependId="false" id="formtext" >
+			<p:fieldset legend="Framework" styleClass="corpo" >
+				<h:panelGrid columns="1" cellpadding="10" >
+					<h:outputText 
+						value="A linguagem Java apresenta uma série de conhecidos frameworks, que auxiliam no desenvolvimento de sistemas. Dentre os mais conhecidos, estão o Struts, Hibernate, JUnit, entre outros.
+							 	Há inúmeras definições a respeito de framework. Podemos considerar um framework como uma solução para um conjunto de problemas em comum, com uso de classes e interfaces, que disponibilizam objetos com capacidade de capturar funcionalidades comuns a várias aplicações. Assim sendo, um framework pode ser considerado sob certo ponto de vista como uma solução quase completa.
+								É muito comum haver uma certa confusão entre o que é um framework e uma simples biblioteca de classes. Vale ressaltar que em uma biblitoteca de classes, cada classe é única e independente de outras classes. Já num framework, existe uma certa dependência entre as classes, conhecido como modelo de colaboração.
+								Também pode haver confusão junto a definição de Design Patterns. Apenas lembrando que em um framework possuímos código em si, enquanto nos design patterns temos apenas um modelo ou exemplo de uma solução para um conhecido problema.
+								Assim sendo, um framework deve ser extensivel, bem documentado e, principalmente, reusável. Vale lembrar que o uso de frameworks tem benefícios claros quando tratamos de redução de custos.
+								Abaixo seguem alguns dos principais frameworks Java:
+								Struts (J2EE) - um dos frameworks mais usados em ambientes corporativos para construção de aplicações web. Usa o modelo MVC e caracterizado por uma camada de controle com uso de J2EE e XML.
+								JavaServer Faces (J2EE) - baseado em tecnologia de servlets e JSP, pode ser usado como uma opção ao Struts.
+								Spring (POA) - framework baseado em orientação a aspectos. Possibilidade de uso em conjuntos com outros frameworks MVC, como o Struts e JSF.
+								Hibernate (Persistência de Dados) - conhecido framework de persistência de dados, que usa conceitos de banco de dados, além do mapeamento objeto-relacional (classes Java para tabelas de databases).
+								JDO (Persistência de Dados) - interface que provê uma camada de abstração aplicação - armazenamento de dados.
+								Prevayler (Persistência de Dados) - outro famoso framework que prega uma JVM invuneravel logicamente com uso de uma camada de prevalência de objetos.
+								JUnit (testes) - talvez o mais usado framework Java, incluído em IDEs free ou comerciais. Para testes unitários em geral.
+								Cactus (testes) - framework específico para testes unitários de aplicações J2EE.
+								Jbanana (J2EE) - framework brasileiro e open-source para desenvolvimento web.
+								Log4J (log) - amplamente usado e útli para geração de logs.
+								Jakarta commons-log (log) - semelhante ao Log4J, sob o selo da Jakarta.
+								Ant (build e deploy) - framework também amplamente divulgado da Jakarta para automatização de processos de construção, além de testes e distribuição.
+								Jasper Report / iReport (geradores de relatório) - framework para geração de modo dinâmico de relatórios. Compatível com formatos xml, pdf e html.
+								" />
+				</h:panelGrid>
+			</p:fieldset>
+			</h:form>
+	</ui:define>
+</ui:composition>

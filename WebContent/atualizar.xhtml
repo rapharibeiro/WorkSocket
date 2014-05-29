@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+               xmlns:ui="http://java.sun.com/jsf/facelets"
+               xmlns:f="http://java.sun.com/jsf/core"
+               xmlns:h="http://java.sun.com/jsf/html"
+               xmlns:p="http://primefaces.org/ui"
+               template="template/template.xhtml">
+
+<ui:define name="conteudo">
+
+	<h:form id="formAt" prependId="false" >
+		<p:panel id="panelAt" toggleable="false" toggleSpeed="100">
+
+			<h:panelGrid columns="1" width="100%">
+
+				<h:outputText value="Nome" />
+				<p:inputText id="inNome" value="#{controle.funcionario.nome}"
+					required="true" requiredMessage="Preencha o campo Nome"
+					style="width:500px;" />
+				<h:outputText value="E-mail" />
+				<p:inputText id="inEmail" value="#{controle.funcionario.email}"
+					required="true" requiredMessage="Preencha o campo Email"
+					style="width:500px;" />
+				<h:outputText value="CPF" />
+				<p:inputMask id="inCpf" value="#{controle.funcionario.cpf}"
+					required="true" requiredMessage="Preencha o campo CPF" mask="999.999.999-99" maxlength="14"
+					style="width:500px;"/>
+				<h:outputText value="Data de Nascimento" />
+				<p:calendar id="inNascimento" value="#{controle.funcionario.nascimento}" locale="pt" yearRange="1930"
+					required="true" requiredMessage="Preencha o campo Data de Nascimento" navigator = "true"
+					showButtonPanel="true" style="width:290px;" />
+
+				<h:outputText value="Sexo" />
+				<p:selectOneButton value="#{controle.funcionario.sexo}">
+					<f:selectItem itemLabel="M" itemValue="M" />
+					<f:selectItem itemLabel="F" itemValue="F" />
+				</p:selectOneButton>
+
+				<h:outputText value="Logradouro" />
+				<p:inputText id="inLogradouro"
+					value="#{controle.endereco.logradouro}" required="true"
+					requiredMessage="Preencha o campo logradouro" style="width:500px;" />
+				<h:outputText value="Cidade" />
+				<p:inputText id="inCidade" value="#{controle.endereco.cidade}"
+					required="true" requiredMessage="Preencha o campo Estado"
+					style="width:290px;" />
+				<h:outputText value="Estado" />
+				<p:selectOneMenu id="cmbEstado" styleClass="field size5"
+					style="width: 300px;" required="true"
+					requiredMessage="Preencha o campo estado"
+					value="#{controle.endereco.estado}">
+					<f:selectItem itemLabel="Selecione" itemValue="#{null}" />
+					<f:selectItems value="#{controle.listaEstado}" var="lstest"
+						itemLabel="#{lstest}" itemValue="#{lstest}" />
+				</p:selectOneMenu>
+
+				<h:outputText value="Cargo" />
+				<p:selectOneMenu id="cmbCargo" styleClass="field size6"
+					style="width: 300px;" required="true"
+					requiredMessage="Preencha o campo Cargo"
+					value="#{controle.cargo.idCargo}">
+					<f:selectItem itemLabel="Selecione" itemValue="#{null}" />
+					<f:selectItems value="#{controle.listaCargo}" />
+				</p:selectOneMenu>
+				<h:outputText value="Data de Admissão: " />
+				<p:calendar id="inAdmissao" value="#{controle.funcionario.admissao}"
+					required="true" requiredMessage="Preencha o campo Admissão"
+					showButtonPanel="true" style="width:290px;" />
+<!-- 				<h:outputText value="Salário" /> -->
+<!-- 				<p:spinner id="inSalario" value="#{controle.funcionario.salario}" -->
+<!-- 					required="true" requiredMessage="Preencha o campo Salario" min="" -->
+<!-- 					max="99999" /> -->
+
+				<h:panelGrid columns="1" width="100%">
+					<p:commandButton actionListener="#{controle.atualizar}"
+						ajax="false" value="Atualizar" />
+				</h:panelGrid>
+			</h:panelGrid>
+		</p:panel>
+		<p:messages id="msg" showDetail="true" />
+	</h:form>
+</ui:define>
+</ui:composition>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" 
+	template="/template/template.xhtml">
+
+	<ui:define name="conteudo">
+
+		<h:form prependId="false" id="formtext">
+			<p:fieldset legend="Hibernate">
+				<h:panelGrid columns="1" cellpadding="10">
+					<h:outputText
+						value="Persistência
+							Hibernate está preocupada com a ajuda de seu aplicativo para alcançar persistência. Então, qual é a persistência? Persistência simplesmente significa que nós gostaríamos de dados da nossa aplicação para sobreviver ao processo de candidaturas. Em termos de Java, gostaríamos que o estado de (alguns) os nossos objetos de viver para além do âmbito da JVM para que o mesmo estado está disponível mais tarde. 
+							Bancos de Dados Relacionais
+							Especificamente, o Hibernate está preocupado com a persistência de dados, uma vez que se aplica a bancos de dados relacionais (RDBMS). No mundo de aplicações orientadas a objetos, muitas vezes há uma discussão sobre o uso de um banco de dados de objeto (ODBMS), em oposição a um RDBMS. Nós não estamos indo para explorar essa discussão aqui. Basta dizer que RDBMS continuam a ser um mecanismo de persistência muito popular e será assim no futuro previsível. 
+							A diferença de impedância objeto-relacional
+							'Incompatibilidade de impedância objeto-relacional 
+													(às vezes chamado de descasamento paradigma ) é apenas uma
+													maneira elegante de dizer que os modelos de objetos e modelos
+													relacionais não funcionam muito bem juntos. RDBMSs representar
+													dados em um formato tabular (uma planilha é uma boa visualização
+													para aqueles não familiarizados com RDBMS) enquanto linguagens
+													orientadas a objeto, como Java, representá-lo como um gráfico de
+													objetos interligados. Carregar e armazenar gráficos de objetos
+													usando um banco de dados relacional tabular nos expõe
+													a 5 problemas de incompatibilidade ...
+							1. Granularidade Às
+													vezes, você vai ter um modelo de objeto que tem mais aulas do que
+													o número de tabelas correspondentes no banco de dados (que diz que
+													o modelo de objeto é mais granular do que o modelo
+													relacional). Tomemos por exemplo a noção de um
+													endereço ...
+							2. Subtipos (herança)
+							A herança é um paradigma
+													natural em linguagens de programação orientadas a objeto. No
+													entanto, RDBMSs não definem nada parecido em toda (sim, alguns
+													bancos de dados têm suporte subtipo mas é completamente
+													não-padronizados) ...
+							3. Identidade A RDBMS define exatamente
+													uma noção de identidade: a chave primária. Java, no
+													entanto, define tanto a identidade do objeto (a== b) ea igualdade
+													do objeto (a.equals (b)).
+							4. Associações Associações são
+													representadas como referências unidirecionais em linguagens
+													orientadas a objeto enquanto RDBMSs usar a noção de chaves
+													estrangeiras. Se você precisa de relacionamentos bidirecionais em
+													Java, você deve definir a associação duas vezes. Da mesma
+													forma, você não pode determinar a multiplicidade de um
+													relacionamento, olhando para o modelo de domínio
+													objeto.
+							5. Dados de navegação A maneira como você acessar dados
+													em Java é fundamentalmente diferente do que a maneira de fazê-lo
+													em um banco de dados relacional. Em Java, você navegar de uma
+													associação a um outro andar da rede de objeto. Esta não é uma
+													forma eficiente de recuperar dados de um banco de dados
+													relacional. Normalmente, você quer minimizar o número de consultas
+													SQL e, portanto, carregar várias entidades através de associações
+													e selecionar as entidades alvo antes de você começar a andar a
+													rede objeto." />
+				</h:panelGrid>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition>

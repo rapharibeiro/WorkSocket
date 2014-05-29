@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding='ISO-8859-1' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<title>Bem Vindo ao sistema de cadastro!</title>
+	<link rel="StyleSheet" type="text/css" href="layout/style.css" media="screen"/>
+</h:head>
+<h:body>
+
+<!-- <div class="wrapper"> -->
+<!-- </div> -->
+<div class="topo">
+		<p:imageSwitch effect="wipe" slideshowAuto="false" styleClass="topo">
+			<p:graphicImage value="/image/index.jpg" dir="rtl"
+				title="Empresa Raphael" width="60%" height="60%" />
+		</p:imageSwitch>
+		
+</div>
+<h:form id="formToolBar" prependId="false">
+			<p:menubar activeIndex="0" style="background: #000;">
+				<p:menuitem style="margin-right:150px" />
+				<p:menuitem value="Home" action="/index.xhtml" ajax="false" style="margin-right:150px; color: #FFF; font-weight: bold;" />
+<!-- 				<p:menuitem value="Login" id="logar" onclick="login.show()" /> -->
+				<p:menuitem type="button" value="Logout" action="#{controle.logout}" style="margin-right:80px; color: #FFF; font-weight: bold;"/>
+			</p:menubar>
+		</h:form>
+<div class="left">
+<h:form id="menuLateral" prependId="false">
+			<p:tieredMenu header="Menu" style="width:240px; height:260px;" styleClass="left">
+				<p:submenu label="Menu">
+					<p:menuitem value="Cadastro" action="#{controle.paginaCadastrar}"
+						ajax="false" />
+					<p:menuitem value="Editar" action="#{controle.paginaConsultar}"
+						ajax="false" />
+					<p:menuitem value="Deletar" action="#{controle.paginaConsultar}"
+						ajax="false" />
+				</p:submenu>
+				<p:submenu label="Navegação">
+					<p:menuitem value="Frameworks" action="#{controle.paginaFramework}"
+						ajax="false" />
+					<p:menuitem value="Hibernate" action="#{controle.paginaHibernate}"
+						ajax="false" />
+					<p:menuitem value="JSF" action="#{controle.paginaJsf}" ajax="false" />
+					<p:menuitem value="Primefaces" action="#{controle.paginaPrimeface}"
+						ajax="false" />
+				</p:submenu>
+				<p:separator />
+				<p:submenu label="Logar">
+					<p:menuitem value="Login" action="#{controle.paginaLogar}"
+						ajax="false" />
+				</p:submenu>
+			</p:tieredMenu>
+		</h:form>
+</div>
+<div class="right">
+</div>
+<div class="center" >
+	<ui:insert  name="conteudo"  />
+</div>
+<div class="footer">
+</div>
+
+
+
+
+
+<!-- 		<h:form columns="1" styleClass="right" style="margin-left:90%" > -->
+<!-- 			<p:growl id="msg" showDetail="true" autoUpdate="true"  /> -->
+<!-- 			<p:commandButton  value="Login" id="logar" onclick="login.show()" /> -->
+<!-- 		</h:form> -->
+
+<!-- 		<p:imageSwitch effect="wipe" slideshowAuto="false" styleClass="topo"> -->
+<!-- 			<p:graphicImage value="/image/index.jpg" dir="rtl" -->
+<!-- 				title="Empresa Raphael" width="60%" height="60%" /> -->
+<!-- 		</p:imageSwitch> -->
+		
+
+<!-- 		<h:form id="formToolBar" prependId="false"> -->
+<!-- 			<p:menubar activeIndex="0" style="background: #000;"> -->
+<!-- 				<p:menuitem style="margin-right:150px" /> -->
+<!-- 				<p:menuitem value="Home" action="/index.xhtml" ajax="false" style="margin-right:150px; color: #FFF; font-weight: bold;" /> -->
+<!--				<p:menuitem value="Login" id="logar" onclick="login.show()" /> -->
+<!-- 				<p:menuitem type="button" value="Logout" action="#{controle.logout}" style="margin-right:80px; color: #FFF; font-weight: bold;"/> -->
+<!-- 			</p:menubar> -->
+<!-- 		</h:form> -->
+<!-- 		<h:form id="menuLateral" prependId="false"> -->
+<!-- 			<p:tieredMenu style="width:240px; height:260px;" styleClass="left"> -->
+<!-- 				<p:submenu label="Menu"> -->
+<!-- 					<p:menuitem value="Cadastro" action="#{controle.paginaCadastrar}" -->
+<!-- 						ajax="false" /> -->
+<!-- 					<p:menuitem value="Editar" action="#{controle.paginaConsultar}" -->
+<!-- 						ajax="false" /> -->
+<!-- 					<p:menuitem value="Deletar" action="#{controle.paginaConsultar}" -->
+<!-- 						ajax="false" /> -->
+<!-- 				</p:submenu> -->
+<!-- 				<p:submenu label="Navegação"> -->
+<!-- 					<p:menuitem value="Frameworks" action="#{controle.paginaFramework}" -->
+<!-- 						ajax="false" /> -->
+<!-- 					<p:menuitem value="Hibernate" action="#{controle.paginaHibernate}" -->
+<!-- 						ajax="false" /> -->
+<!-- 					<p:menuitem value="JSF" action="#{controle.paginaJsf}" ajax="false" /> -->
+<!-- 					<p:menuitem value="Primefaces" action="#{controle.paginaPrimeface}" -->
+<!-- 						ajax="false" /> -->
+<!-- 				</p:submenu> -->
+<!-- 				<p:separator /> -->
+<!-- 				<p:submenu label="Logar"> -->
+<!-- 					<p:menuitem value="Login" action="#{controle.paginaLogar}" -->
+<!-- 						ajax="false" /> -->
+<!-- 				</p:submenu> -->
+<!-- 			</p:tieredMenu> -->
+<!-- 		</h:form> -->
+
+<!-- 	<div  class="wrapper">	 -->
+<!-- 		<ui:insert name="conteudo" /> -->
+<!-- 	</div> -->
+
+	<h:form prependId="false" id="formLogin">
+<!-- 		<p:growl showDetail="true" id="msg" life="3000" /> -->
+		<p:dialog id="basicDialog" header="Login" widgetVar="login"
+			draggable="false" resizable="false">
+			<h:form id="formlog">
+				<h:panelGrid columns="2" id="pngrdLogin">
+					<h:outputText value="Login" />
+					<p:inputText id="inLogin" value="#{controle.usuario.login}"
+						required="true" requiredMessage="Preencha o campo Login"
+						style="width:120px;" />
+					<h:outputText value="Senha " />
+					<p:password id="nonFeedback" value="#{controle.usuario.senha}"
+						required="true" requiredMessage="Preencha o campo senha"
+						style="width:120px;" />
+				</h:panelGrid>
+				<h:panelGrid columns="2" width="100%">
+					<h:commandButton value="Login" action="#{controle.logar}" />
+					<p:commandLink id="EsqSenha" value="Mudar Senha"
+						onclick="esqSenha.show();" type="button" />
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+	</h:form>
+	<h:form>
+		<p:dialog widgetVar="esqSenha" header="Mudar Senha" resizable="false">
+			<h:panelGrid columns="2">
+
+				<h:outputText value="Login" />
+				<h:inputText value="#{controle.usuario.login}" readonly="true" />
+
+				<h:outputText value="Senha " />
+				<p:password id="nonFeedback" value="#{controle.usuario.senha}"
+					required="true" requiredMessage="Preencha o campo senha" />
+
+				<h:outputLabel for="pwd1" value="Nova Senha" />
+				<p:password id="pwd1" value="#{controle.novaSenha}" match="pwd2"
+					feedback="true" label="Password 1" required="true" />
+
+				<h:outputLabel for="pwd2" value="Confirmar Nova Senha" />
+				<p:password id="pwd2" value="#{controle.confSenha}"
+					label="Password 2" required="true" />
+
+				<h:panelGrid columns="1" width="100%">
+					<p:commandButton action="#{controle.mudarSenha}" ajax="false"
+						value="Atualizar" />
+				</h:panelGrid>
+
+			</h:panelGrid>
+		</p:dialog>
+	</h:form>
+</h:body>
+</html>
+
+

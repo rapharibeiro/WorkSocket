@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" 
+	template="/template/template.xhtml">
+
+	<ui:define name="conteudo">
+
+		<h:form prependId="false" id="formtext">
+			<p:fieldset legend="JSF">
+				<h:panelGrid columns="1" cellpadding="10">
+					<h:outputText 
+						value="JSF é uma tecnologia que incorpora características de um framework MVC para WEB e de um 
+						modelo de interfaces gráficas baseado em eventos. Por basear-se no padrão de projeto MVC, uma de 
+						suas melhores vantagens é a clara separação entre a visualização e regras de negócio (modelo). 
+						A idéia do padrão MVC é dividir uma aplicação em três camadas: modelo, visualização e controle. 
+						O modelo é responsável por representar os objetos de negócio, manter o estado da aplicação e fornecer 
+						ao controlador o acesso aos dados. A visualização representa a interface com o usuário, sendo 
+						responsável por definir a forma como os dados serão apresentados e encaminhar as ações dos usuários 
+						para o controlador. Já a camada de controle é responsável por fazer a ligação entre o modelo e a 
+						visualização, além de interpretar as ações do usuário e as traduzir para uma operação sobre o modelo, 
+						onde são realizadas mudanças e, então, gerar uma visualização apropriada. " />
+				</h:panelGrid>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+	</ui:composition>

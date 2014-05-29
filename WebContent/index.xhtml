@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+               xmlns:ui="http://java.sun.com/jsf/facelets"
+               xmlns:f="http://java.sun.com/jsf/core"
+               xmlns:h="http://java.sun.com/jsf/html"
+               xmlns:p="http://primefaces.org/ui"
+               template="template/template.xhtml">
+
+<ui:define name="conteudo">
+
+<!-- 		<h:form prependId="false" id="formLogin"> -->
+<!-- 			<p:growl showDetail="true" id="msg" life="3000" /> -->
+<!-- 			<p:dialog id="basicDialog" header="Login" widgetVar="login" -->
+<!-- 				draggable="false" resizable="false"> -->
+<!-- 				<h:form id="formlog"> -->
+<!-- 					<h:panelGrid columns="2" id="pngrdLogin"> -->
+<!-- 						<h:outputText value="Login" /> -->
+<!-- 						<p:inputText id="inLogin" value="#{controle.usuario.login}" -->
+<!-- 							required="true" requiredMessage="Preencha o campo Login" -->
+<!-- 							style="width:120px;" /> -->
+<!-- 						<h:outputText value="Senha " /> -->
+<!-- 						<p:password id="nonFeedback" value="#{controle.usuario.senha}" -->
+<!-- 							required="true" requiredMessage="Preencha o campo senha" -->
+<!-- 							style="width:120px;" /> -->
+<!-- 					</h:panelGrid> -->
+<!-- 					<h:panelGrid columns="2" width="100%"> -->
+<!-- 						<h:commandButton value="Login" action="#{controle.logar}" /> -->
+<!-- 						<p:commandLink id="EsqSenha" value="Mudar Senha" -->
+<!-- 							onclick="esqSenha.show();" type="button" /> -->
+<!-- 					</h:panelGrid> -->
+<!-- 				</h:form> -->
+<!-- 			</p:dialog> -->
+<!-- 		</h:form> -->
+<!-- 		<h:form> -->
+<!-- 			<p:dialog widgetVar="esqSenha" header="Mudar Senha" resizable="false"> -->
+<!-- 				<h:panelGrid columns="2"> -->
+
+<!-- 					<h:outputText value="Login" /> -->
+<!-- 					<h:inputText value="#{controle.usuario.login}" readonly="true" /> -->
+
+<!-- 					<h:outputText value="Senha " /> -->
+<!-- 					<p:password id="nonFeedback" value="#{controle.usuario.senha}" -->
+<!-- 						required="true" requiredMessage="Preencha o campo senha" /> -->
+
+<!-- 					<h:outputLabel for="pwd1" value="Nova Senha" /> -->
+<!-- 					<p:password id="pwd1" value="#{controle.novaSenha}" match="pwd2" -->
+<!-- 						feedback="true" label="Password 1" required="true" /> -->
+
+<!-- 					<h:outputLabel for="pwd2" value="Confirmar Nova Senha" /> -->
+<!-- 					<p:password id="pwd2" value="#{controle.confSenha}" -->
+<!-- 						label="Password 2" required="true" /> -->
+
+<!-- 					<h:panelGrid columns="1" width="100%"> -->
+<!-- 						<p:commandButton action="#{controle.mudarSenha}" ajax="false" -->
+<!-- 							value="Atualizar" /> -->
+<!-- 					</h:panelGrid> -->
+
+<!-- 				</h:panelGrid> -->
+<!-- 			</p:dialog> -->
+<!-- 		</h:form> -->
+
+		<h:form prependId="false" id="formtext">
+			<p:fieldset style="height: 560px;">
+				<h:panelGrid columns="2" cellpadding="10">
+					<p:graphicImage value="/image/estudar.jpg" />
+					<h:outputText
+						value="Com intuito de elevar o aprendizado em Java, o novo estagiário da Empresa Bemfam, Raphael 
+					       desenvolveu um pequeno aplicativo Web de cadastramento de funcionários de uma empresa fantasia.
+					       Utilizando os frameworks Hibernate, JSF e Primefaces o site de serviu como um desafio para melhorar a performace 
+             do novo contrato, navegue pelo site e veja o resultado." />
+				</h:panelGrid>
+			</p:fieldset>
+		</h:form>
+
+	
+
+	</ui:define>
+</ui:composition>
