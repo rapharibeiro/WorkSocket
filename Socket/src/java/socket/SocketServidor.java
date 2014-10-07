@@ -43,7 +43,7 @@ public class SocketServidor {
             int nArq = Integer.parseInt(nomeArquivo);
             
             byte[] arquivo = listByte.get(nArq);
-            int cont = 0;
+            int cont = 1;
             for (int i = 0; i < ms; i++) {
                 try {
                     try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(new File("C:/Temp/"+"arquivo_pos_"+nArq+"_"+cont+".bin")))) {
@@ -78,7 +78,6 @@ public class SocketServidor {
 	public static void main(String[] args) throws IOException {
 		
 		ServerSocket server = null;
-		//DataInputStream dis = null;
 		BufferedReader in = null;
               
                     // Abrindo porta para conexao de clients
@@ -96,59 +95,44 @@ public class SocketServidor {
                     String arqs = "";
                     System.out.println(op);
                 
-            while(!op.equalsIgnoreCase("/close")){        
-                    if(op.equalsIgnoreCase("/arq")){
-                        arqs = dis.readUTF();
-                        System.out.println(arqs);
-                        arq(arqs);
-                    }
-                    System.out.println(op);
-                        if(op.equalsIgnoreCase("/rea")){
-                            arqs = dis.readUTF();
-                            System.out.println(arqs);
-                            rea(arqs);
-                        }   
-                            if(op.equalsIgnoreCase("/limp")){
+                    while(!op.equalsIgnoreCase("/close")){        
+                            if(op.equalsIgnoreCase("/arqMemoria")){
                                 arqs = dis.readUTF();
-                                limp(arqs);
+                                arqMemoria(arqs);
                             }
-                       op = in.readLine();
-//                    dis = new DataInputStream(sock.getInputStream());
-            }
+                                if(op.equalsIgnoreCase("/arqDisco")){
+                                    arqs = dis.readUTF();
+                                    arqDisco(arqs);
+                                }   
+                                    if(op.equalsIgnoreCase("/arqLimp")){
+                                        arqs = dis.readUTF();
+                                        arqLimp(arqs);
+                                    }
+                        op = in.readLine();
+                    }
                     dis.close();
                     sock.close();
                     server.close();
                     in.close();
-		
-	}
+                }
     
-        public static void arq(String arq) throws IOException{            
+        public static void arqMemoria(String arq) throws IOException{            
                     while(!arq.equalsIgnoreCase("fechar")){
-                        System.out.println(arq);
                         servidor.carregaArquivoMemoria(arq);
                         arq = dis.readUTF();
                      }
             } 
-       public static void rea(String disc)throws IOException{ 
-   
-                    String[] aux = new String[2]; 
-                    aux = disc.split(",");
-                    System.out.println(aux[0]);
+       public static void arqDisco(String disc)throws IOException{ 
+                    String[] aux =disc.split(",");; 
                     while(!disc.equalsIgnoreCase("fechar")){
-                        System.out.println(disc);
                         aux = disc.split(",");
-//                        for (int i = 0; i < aux.length; i++) {
-//                            System.out.println(aux[i]+aux[i+1]);
-                            servidor.escreverArquivoDisco(aux[0], aux[1]);
-//                            break;
-//                        }
+                        servidor.escreverArquivoDisco(aux[0], aux[1]);
                         System.out.println("Sucesso");
                         disc = dis.readUTF();
                     }
        }
        
-       public static void limp(String op)throws IOException{
-                    op = dis.readUTF();
+       public static void arqLimp(String op)throws IOException{
                     if(op.equalsIgnoreCase("sim")){
                         servidor.limparLista();
                     }else{
