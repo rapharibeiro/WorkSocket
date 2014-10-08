@@ -1,5 +1,6 @@
 package socket;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -9,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -62,24 +64,11 @@ public class SocketServidor {
             listByte.clear();
 	}
 	
-	public void enviarArquivo(File f) {
-		byte[] arquivo = new byte[(int) f.length()];
-		try {
-			dis = new DataInputStream(new FileInputStream(f));
-			dis.read(arquivo);
-		} catch (FileNotFoundException ex) {
-			Logger.getLogger(SocketServidor.class.getName()).log(Level.SEVERE, null, ex);
-		}catch (IOException ex) {
-			Logger.getLogger(SocketServidor.class.getName()).log(Level.SEVERE, null, ex);
-		}
-		listByte.add(arquivo);
-	}
-	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, Exception {
 		
 		ServerSocket server = null;
 		BufferedReader in = null;
-              
+                boolean chave = true;
                     // Abrindo porta para conexao de clients
                     server = new ServerSocket(13267);
                     System.out.println("Porta de conexao aberta 13267");
@@ -94,22 +83,89 @@ public class SocketServidor {
                     String op = in.readLine();
                     String arqs = "";
                     System.out.println(op);
-                
-                    while(!op.equalsIgnoreCase("/close")){        
-                            if(op.equalsIgnoreCase("/arqMemoria")){
-                                arqs = dis.readUTF();
-                                arqMemoria(arqs);
+                    
+                while(chave){
+                    switch(op){
+                        case "/arqMemoria" :
+                            arqs = dis.readUTF();
+                            arqMemoria(arqs);
+                            break;
+                        case  "/arqDisco" :
+                            arqs = dis.readUTF();
+                            arqDisco(arqs);         
+                            break;
+                        case "/arqLimp" :
+                            arqs = dis.readUTF();
+                            arqLimp(arqs);          
+                            break;
+                        case "/arqUp" : 
+                            arqs = dis.readUTF();
+                            byte[] cache = new byte[4096];
+                            
+                            FileOutputStream fos = new FileOutputStream(arqs);    
+                            while(!arqs.equalsIgnoreCase("fechar")){
+                                while (true) {    
+                                    int len = dis.read(cache);
+                                    if (len == -1) {    
+                                        break;    
+                                    }    
+                                        fos.write(cache, 0, len);    
+                                }
+                                listByte.add(cache);
+                                fos.flush();    
+                                fos.close();
+                                System.out.println("Sucesso");
+                                System.out.println(op);
                             }
-                                if(op.equalsIgnoreCase("/arqDisco")){
-                                    arqs = dis.readUTF();
-                                    arqDisco(arqs);
-                                }   
-                                    if(op.equalsIgnoreCase("/arqLimp")){
-                                        arqs = dis.readUTF();
-                                        arqLimp(arqs);
-                                    }
-                        op = in.readLine();
+                            break;
+                        default:    
+                            System.out.println("Encerrando transmição");
+                            chave = false;
                     }
+                    op = in.readLine();
+                    arqs = "";
+                }
+                    
+//                    
+//                
+//                    while(!op.equalsIgnoreCase("/close")){        
+//                            if(op.equalsIgnoreCase("/arqMemoria")){
+//                                arqs = dis.readUTF();
+//                                arqMemoria(arqs);
+//                            }
+//                                if(op.equalsIgnoreCase("/arqDisco")){
+//                                    arqs = dis.readUTF();
+//                                    arqDisco(arqs);
+//                                }   
+//                                    if(op.equalsIgnoreCase("/arqLimp")){
+//                                        arqs = dis.readUTF();
+//                                        arqLimp(arqs);
+//                                    }if(op.equalsIgnoreCase("/arqUp")){
+//                                    try{    arqs = dis.readUTF();
+//                                    byte[] cache = new byte[4096];    
+//
+//                                    ObjectInputStream ois = new ObjectInputStream(dis);    
+//
+//                                    FileOutputStream fos = new FileOutputStream(arqs);    
+//                                    while (true) {    
+//                                        int len = ois.read(cache);    
+//                                        if (len == -1) {    
+//                                            break;    
+//                                        }    
+//                                        fos.write(cache, 0, len);    
+//                                    }    
+//                                    fos.flush();    
+//                                    fos.close();    
+//                                } catch (IOException e) {    
+//                                    System.out.println(e);    
+//                                }    
+//                                        
+//                                    }
+//                        op = in.readLine();
+//                        System.out.println(op);
+//                    }
+                 
+                    
                     dis.close();
                     sock.close();
                     server.close();
